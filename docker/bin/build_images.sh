@@ -63,6 +63,7 @@ if ! imageExists "code"; then
         docker/bin/docker_build.sh "build"
     fi
     docker_cp build /app/static/. ./static
+    docker_cp build /app/node_modules/. ./node_modules
     echo "${GIT_COMMIT}" > ./static/revision.txt
     docker/bin/docker_build.sh "code"
 fi
